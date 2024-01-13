@@ -1,27 +1,34 @@
+// #region BodyColor Change 
+
 var bodyColor = document.getElementById('bodyColor')
 
 bodyColor.addEventListener('input', function() {
     document.body.style.backgroundColor = this.value;
 });
 
+// #endregion 
 
-document.getElementById('loadingColor').addEventListener('input', function() {
+// #region LoadingColor Change
+
+var loadingColor = document.getElementById('loadingColor')
+
+loadingColor.addEventListener('input', function() {
+
     var boxes = document.getElementsByClassName('box');
 
-    console.log(boxes);
     for (var i = 0; i < boxes.length; i++) {
         boxes[i].style.backgroundColor = this.value;
     }
 
     var rgb = getRgb(this.value);
 
-    var styleElement2 = document.getElementById('dynamic-styles');
-    if (!styleElement2) {
-        styleElement2 = document.createElement('style');
-        styleElement2.id = 'dynamic-styles';
-        document.head.appendChild(styleElement2);
+    var hiddingElement = document.getElementById('dynamic-styles');
+    if (!hiddingElement) {
+        hiddingElement = document.createElement('style');
+        hiddingElement.id = 'dynamic-styles';
+        document.head.appendChild(hiddingElement);
     }
-    styleElement2.textContent = `
+    hiddingElement.textContent = `
         @keyframes loadingAnimate{
             0%{
                 box-shadow: 0 0 0 rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5);
@@ -43,24 +50,21 @@ document.getElementById('loadingColor').addEventListener('input', function() {
     `;
 });
 
-function getRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
-}
+// #endregion
 
+// #region TextColor Change 
 
-document.getElementById('textColor').addEventListener('input', function() {
-    var styleElement = document.getElementById('dynamic-styles');
-    if (!styleElement) {
-        styleElement = document.createElement('style');
-        styleElement.id = 'dynamic-styles';
-        document.head.appendChild(styleElement);
+var textColor = document.getElementById('textColor')
+
+textColor.addEventListener('input', function() {
+
+    var hiddingElement = document.getElementById('dynamic-styles');
+    if (!hiddingElement) {
+        hiddingElement = document.createElement('style');
+        hiddingElement.id = 'dynamic-styles';
+        document.head.appendChild(hiddingElement);
     }
-    styleElement.textContent = `
+    hiddingElement.textContent = `
         @keyframes titleAnimate {
             0% {
                 color: #ffffff;
@@ -74,3 +78,18 @@ document.getElementById('textColor').addEventListener('input', function() {
         }
     `;
 });
+
+// #endregion
+
+// #region Get RGB from HEX 
+
+function getRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+// #endregion

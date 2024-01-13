@@ -1,3 +1,5 @@
+/* #region Global CSS */
+
 *{
     
     box-sizing: border-box;
@@ -9,6 +11,10 @@ body{
     padding: 0;
     background: #141424;
 }
+
+/* #endregion */
+
+/* #region Containers */
 
 .mainContainer{
     
@@ -60,26 +66,6 @@ body{
 .colorContainer:hover{
     box-shadow: 0 0 20px rgba(41, 90, 224, 0.8);
     background-color: #19193d;
-
-}
-
-.colorPalette {
-    -webkit-appearance: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 1s ease;
-}
-
-.colorPalette::-webkit-color-swatch-wrapper {
-    padding: 2px;
-    border-color: tomato;
-}
-
-.colorPalette::-webkit-color-swatch {
-    border: none;
-    border-radius: 20px;
 }
 
 .loadingContainer{
@@ -100,6 +86,29 @@ body{
     font-weight: 200;
     letter-spacing: 3px;
     animation : titleAnimate 2s linear infinite;
+}
+
+/* #endregion */
+
+/* #region Elements CSS */
+
+.colorPalette {
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+.colorPalette::-webkit-color-swatch-wrapper {
+    padding: 2px;
+    border-color: tomato;
+}
+
+.colorPalette::-webkit-color-swatch {
+    border: none;
+    border-radius: 20px;
 }
 
 .label{
@@ -174,6 +183,10 @@ body{
     animation-delay: 0.8s;
 }
 
+/* #endregion */
+
+/* #region Animations */
+
 @keyframes titleAnimate{
     0%{
         color: #ffffff;
@@ -206,3 +219,5 @@ body{
     }
     
 }
+
+/* #endregion */
